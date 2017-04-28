@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchData } from '../Actions';
+import { delData } from '../Actions';
 
 const styles = {
   footer: {
@@ -18,9 +18,10 @@ const styles = {
 };
 
 class Data extends React.Component {
-  componentDidMount() {
-    this.props.fetchData();
-  }
+  // componentDidMount() {
+  //   this.props.fetchData();
+  // }
+
   render() {
     return (
       <div>
@@ -35,7 +36,14 @@ class Data extends React.Component {
               </div>
               <footer className="card-footer" style={styles.footer}>
                 <p className="card-footer-item"><a className="button is-primary">Edit</a></p>
-                <p className="card-footer-item"><a className="button is-primary">Delete</a></p>
+                <p className="card-footer-item">
+                  <button
+                    className="button is-primary"
+                    onClick={() => this.props.delData(result.episode_id)}
+                  >
+                    Delete
+                  </button>
+                </p>
               </footer>
               <br />
               <br />
@@ -59,7 +67,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: () => dispatch(fetchData()),
+    // fetchData: () => dispatch(fetchData()),
+    delData: dataId => dispatch(delData(dataId)),
   };
 };
 
