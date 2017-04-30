@@ -54,6 +54,20 @@ const delData = (state, episodeId) => {
   return newState;
 };
 
+const editData = (state, updatedData) => {
+  const newState = state.map((data) => {
+    if (data.episode_id === updatedData.id) {
+      return {
+        ...data,
+        title: updatedData.title,
+        director: updatedData.director,
+      };
+    }
+    return data;
+  });
+  return newState;
+};
+
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_DATA_SUCCESS': {
@@ -62,6 +76,7 @@ const dataReducer = (state = initialState, action) => {
     }
     case 'ADD_DATA': return addData(state, action.payload);
     case 'DELETE_DATA': return delData(state, action.payload);
+    case 'EDIT_DATA' : return editData(state, action.payload);
     default: return state;
   }
 };
