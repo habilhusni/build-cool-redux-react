@@ -56,7 +56,7 @@ const delData = (state, episodeId) => {
 
 const editData = (state, updatedData) => {
   const newState = state.map((data) => {
-    if (data.episode_id === updatedData.id) {
+    if (data.episode_id === updatedData.episode_id) {
       return {
         ...data,
         title: updatedData.title,

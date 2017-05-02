@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { editData, delData } from '../Actions';
 
@@ -39,9 +40,9 @@ class Data extends React.Component {
                   className="card-footer-item"
                 >
                   <a
-                    className="button is-primary"
+                    className="button is-warning"
                   >
-                    Edit
+                    <Link to="/edit">Edit</Link>
                   </a>
                 </p>
                 <p className="card-footer-item">
