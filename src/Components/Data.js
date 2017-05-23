@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { editData, delData } from '../Actions';
+import Background from '../img/attack-of-the-clans.jpg';
 
 const styles = {
   footer: {
@@ -15,6 +16,8 @@ const styles = {
   },
   cardcontent: {
     textAlign: 'center',
+    backgroundImage: `url(${Background})`,
+    backgroundSize: 'cover',
   },
 };
 
